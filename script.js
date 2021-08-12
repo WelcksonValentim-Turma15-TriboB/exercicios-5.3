@@ -13,9 +13,10 @@ function createDaysOfTheWeek() {
   
   createDaysOfTheWeek()
   
-  const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+
     // Escreva seu código abaixo.
   function createDaysOfTheMonth() {
+    const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
     let dayList = document.querySelector('#days');
 
     for (let index = 0; index < dezDaysList.length; index += 1) {
@@ -72,5 +73,32 @@ function clickButtonHolidays() {
       }
     })
   };
-  
       clickButtonHolidays();
+
+      function buttonFriday(friday) {
+      let dayFriday = document.querySelector('.buttons-container');
+      let buttonFriday = document.createElement('button');
+      buttonFriday.id = 'btn-friday';
+      dayFriday.appendChild(buttonFriday);
+      buttonFriday.innerHTML = friday;
+  }
+  buttonFriday('Sexta-feira');
+
+  function clickButtonFriday(friday) {
+    let buttonFriday= document.querySelector('#btn-friday');
+    let fridays = document.getElementsByClassName('friday');
+    let dayFriday = 'friday =)';
+    
+    buttonFriday.addEventListener('click', function(){
+    for (let index = 0; index < fridays.length; index += 1) {
+        if (fridays[index].innerHTML !== dayFriday) {
+            fridays[index].innerHTML = dayFriday;
+        }
+        else {
+            fridays[index].innerHTML = friday[index]; 
+        }
+    }
+    })
+  };
+  let dezFridays = [ 4, 11, 18, 25 ];
+  clickButtonFriday(dezFridays);
