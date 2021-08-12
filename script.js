@@ -23,15 +23,20 @@ function createDaysOfTheWeek() {
         let elementoLi = document.createElement('li');
         console.log(elementoDay);
 
-        if (elementoDay === 24 || elementoDay === 25 || elementoDay === 31) {
+        if (elementoDay === 24 || elementoDay === 31) {
             elementoLi.className = 'day holiday';
             elementoLi.innerHTML = elementoDay;
             dayList.appendChild(elementoLi);
         }
-        else if (elementoDay === 4 || elementoDay === 11 || elementoDay === 18 || elementoDay === 25) {
+        else if (elementoDay === 4 || elementoDay === 11 || elementoDay === 18) {
             elementoLi.className = 'day friday';
             elementoLi.innerHTML = elementoDay;
             dayList.appendChild(elementoLi);
+        }
+        else if (elementoDay === 25) {
+            elementoLi.className = 'day holiday friday';
+            elementoLi.innerHTML = elementoDay;
+            dayList.appendChild(elementoLi);   
         }
         else {
             elementoLi.className = 'day';
@@ -41,3 +46,12 @@ function createDaysOfTheWeek() {
     }
   }
   createDaysOfTheMonth()
+
+  function receveHolidays(nameButton){
+      let dayHoliday = document.querySelector('.buttons-container');
+      let newButton = document.createElement('button');
+      newButton.id = 'btn-holiday';
+      dayHoliday.appendChild(newButton);
+      newButton.innerHTML = nameButton;
+  }
+  receveHolidays('Feriados');
