@@ -55,3 +55,22 @@ function createDaysOfTheWeek() {
       newButton.innerHTML = nameButton;
   }
   receveHolidays('Feriados');
+
+function clickButtonHolidays() {
+    let buttonHoliday = document.querySelector('#btn-holiday');
+    let dayHoliday = document.querySelectorAll('.holiday');
+    let backgroundColor = 'rgb(238,238,238)';
+    let newColor = 'yellow';
+  
+    buttonHoliday.addEventListener('click', function() {
+      for (let index = 0; index < dayHoliday.length; index += 1) {
+        if (dayHoliday[index].style.backgroundColor === newColor) {
+            dayHoliday[index].style.backgroundColor = backgroundColor;
+        } else {
+            dayHoliday[index].style.backgroundColor = newColor;
+        }
+      }
+    })
+  };
+  
+      clickButtonHolidays();
